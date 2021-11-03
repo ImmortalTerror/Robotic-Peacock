@@ -1,5 +1,4 @@
 discord
-os
 requests
 json
 random
