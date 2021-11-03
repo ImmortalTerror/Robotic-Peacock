@@ -1,6 +1,3 @@
-TOKEN = "NzY1ODgyOTYyMjMwMjQ3NDI1.X4bSFw.3kFHW66-dDIzosLci_mz3l1BeNk"
-
-
 import discord
 import os
 import requests
@@ -62,4 +59,4 @@ async def on_message(message):
 
 
 
-client.run(TOKEN)
+client.run(os.getenv("TOKEN"))
