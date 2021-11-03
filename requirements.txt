@@ -1,4 +1,3 @@
 discord
 requests
-json
 random
