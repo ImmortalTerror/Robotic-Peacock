@@ -78,7 +78,7 @@ async def on_message(message):
         await message.channel.send(f"Send you a dm <@{message.author.id}> :kissing_heart:")
 
         randomoutput = int(random.randrange(7))
-        print(f"({message.guild.name}) >> {message.author} ran !dm and got output {randomoutput}")
+        print(f"({message.guild.name}) >> {message.author} ran !flirt and got output {randomoutput}")
 
         if randomoutput == 0:
             await message.author.send("Whats up baby :smirk:")
