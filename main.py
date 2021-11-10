@@ -9,17 +9,11 @@
 # 
 TOKEN = "NzY1ODgyOTYyMjMwMjQ3NDI1.X4bSFw.3kFHW66-dDIzosLci_mz3l1BeNk"
 
-from discord.ext import commands
 import discord
-import os
-import requests
-import json
 import random
 
 
 client = discord.Client()
-
-bot = commands.Bot(command_prefix="!")
 
 
 
