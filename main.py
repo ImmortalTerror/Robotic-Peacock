@@ -1,16 +1,19 @@
+# TO DO
+# -Math bot (I need to learn how to get the text after a message)
+# -Basic moderation
+# -Learn discord commands extention (I will probably have to re-write the whole bot)
+# -Science cause SquidBoi wants it. I will probably just find some random science fact api
+# 
+# 
+# 
+# 
 TOKEN = "NzY1ODgyOTYyMjMwMjQ3NDI1.X4bSFw.3kFHW66-dDIzosLci_mz3l1BeNk"
 
-from discord.ext import commands
 import discord
-import os
-import requests
-import json
 import random
 
 
 client = discord.Client()
-
-commands.Bot(command_prefix="!")
 
 
 
@@ -77,8 +80,8 @@ async def on_message(message):
     if message.content.lower() == "!flirt":
         await message.channel.send(f"Send you a dm <@{message.author.id}> :kissing_heart:")
 
-        randomoutput = int(random.randrange(7))
-        print(f"({message.guild.name}) >> {message.author} ran !flirt and got output {randomoutput}")
+        randomoutput = int(random.randrange(12))
+        print(f"({message.guild.name}) >> {message.author} ran !dm and got output {randomoutput}")
 
         if randomoutput == 0:
             await message.author.send("Whats up baby :smirk:")
@@ -104,7 +107,22 @@ async def on_message(message):
         elif randomoutput == 7:
             await message.author.send("Hi, I’m Robotic Peacock. Do you remember me? Oh, that’s right—we’ve only met in my dreams :sleeping:")
             return
-        
+        elif randomoutput == 8:
+            await message.author.send("Your hand looks heavy—can I hold it for you?")
+            return
+        elif randomoutput == 9:
+            await message.author.send("The sparkle in your eyes is so bright, the sun must be jealous.")
+            return
+        elif randomoutput == 10:
+            await message.author.send("no.")
+            return
+        elif randomoutput == 11:
+            await message.author.send("I'm taken... sorry :)")
+            return
+
     return
+
+
+
 
 client.run(TOKEN)
