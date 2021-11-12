@@ -47,7 +47,7 @@ async def on_message(message):
 
     # !random
     if message.content.lower() == "!random":
-        randomoutput = int(random.randrange(4))
+        randomoutput = int(random.randrange(7))
         print(f"({message.guild.name}) >> {message.author} ran !random in {message.channel.name} and got response {randomoutput}")
         if randomoutput == 0:
             await message.channel.send(f"hmmm... {random.randrange(100)} seems like a nice number :D")
@@ -61,6 +61,15 @@ async def on_message(message):
         if randomoutput == 3:
             await message.channel.send(f"idfk what number to give you, go ask <@628105970282790912> or something.")
             return
+        if randomoutput == 4:
+            await message.channel.send(f"Here's a {random.randrange(100)}")
+            return
+        if randomoutput == 5:
+            await message.channel.send(f"Something tells me that you want {random.randrange(100)}...")
+            return
+        if randomoutput == 6:
+            await message.channel.send(f"You seems like the kind of person to want {random.randrange(100)}")
+            return
 
 
     # !help
@@ -69,7 +78,7 @@ async def on_message(message):
         embed=discord.Embed(title="Robotic Peacock", description="Commands:", color=0x002fa0)
         embed.set_thumbnail(url="https://i.imgur.com/uN7ki7X.png")
         embed.add_field(name="!help", value="Shows you a list of commands.", inline=False)
-        embed.add_field(name="!random", value="Gives you a random number... Most of the time.", inline=False)
+        embed.add_field(name="!random", value="Gives you a random number from 0-100... Most of the time.", inline=False)
         embed.add_field(name="!flirt", value="You have to be really lonely to use this command.", inline=False)
         embed.set_footer(text="This bot is still in development and has a long way to go")
         await message.channel.send(embed=embed)
@@ -81,7 +90,7 @@ async def on_message(message):
         await message.channel.send(f"Send you a dm <@{message.author.id}> :kissing_heart:")
 
         randomoutput = int(random.randrange(12))
-        print(f"({message.guild.name}) >> {message.author} ran !dm and got output {randomoutput}")
+        print(f"({message.guild.name}) >> {message.author} ran !flirt and got output {randomoutput}")
 
         if randomoutput == 0:
             await message.author.send("Whats up baby :smirk:")
