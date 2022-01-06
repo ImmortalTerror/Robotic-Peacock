@@ -7,10 +7,17 @@
 # 
 # 
 # 
-TOKEN = "NzY1ODgyOTYyMjMwMjQ3NDI1.X4bSFw.3kFHW66-dDIzosLci_mz3l1BeNk"
+
+
+# Gets token from .env
+with open('token.env', 'r') as file:
+    TOKEN = file.read().rstrip()
+
 
 import discord
 import random
+from datetime import datetime
+
 
 
 client = discord.Client()
@@ -27,7 +34,9 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    print(f"({message.guild.name} - {message.channel.name}) {message.author}: {message.content}")
+    now = datetime.now()
+    current_time = now.strftime("%D %H:%M")
+    print(f"{current_time} - ({message.guild.name} - {message.channel.name}) {message.author}: {message.content}")
 
 
     # BOT COMMANDS:
@@ -38,7 +47,9 @@ async def on_message(message):
 
         # !test
         if message.content.lower() == "!test":
-            print(f"({message.guild.name}) >> {message.author} ran !test")
+            now = datetime.now()
+            current_time = now.strftime("%D %H:%M")
+            print(f"{current_time} - ({message.guild.name}) >> {message.author} ran !test")
             await message.channel.send(f"stfu {message.author}")
             return
 
@@ -48,7 +59,9 @@ async def on_message(message):
     # !random
     if message.content.lower() == "!random":
         randomoutput = int(random.randrange(7))
-        print(f"({message.guild.name}) >> {message.author} ran !random in {message.channel.name} and got response {randomoutput}")
+        now = datetime.now()
+        current_time = now.strftime("%D %H:%M")
+        print(f"{current_time} - ({message.guild.name}) >> {message.author} ran !random in {message.channel.name} and got response {randomoutput}")
         if randomoutput == 0:
             await message.channel.send(f"hmmm... {random.randrange(100)} seems like a nice number :D")
             return
@@ -74,7 +87,9 @@ async def on_message(message):
 
     # !help
     if message.content.lower() == "!help":
-        print(f"({message.guild.name}) >> {message.author} ran !help in {message.channel.name}")
+        now = datetime.now()
+        current_time = now.strftime("%D %H:%M")
+        print(f"{current_time} - ({message.guild.name}) >> {message.author} ran !help in {message.channel.name}")
         embed=discord.Embed(title="Robotic Peacock", description="Commands:", color=0x002fa0)
         embed.set_thumbnail(url="https://i.imgur.com/uN7ki7X.png")
         embed.add_field(name="!help", value="Shows you a list of commands.", inline=False)
@@ -90,7 +105,9 @@ async def on_message(message):
         await message.channel.send(f"Send you a dm <@{message.author.id}> :kissing_heart:")
 
         randomoutput = int(random.randrange(12))
-        print(f"({message.guild.name}) >> {message.author} ran !flirt and got output {randomoutput}")
+        now = datetime.now()
+        current_time = now.strftime("%D %H:%M")
+        print(f"{current_time} - ({message.guild.name}) >> {message.author} ran !flirt and got output {randomoutput}")
 
         if randomoutput == 0:
             await message.author.send("Whats up baby :smirk:")
