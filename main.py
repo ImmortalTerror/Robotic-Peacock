@@ -1,3 +1,6 @@
+# THIS CODE IS AWFUL DON'T LOOK AT IT
+
+
 # TO DO
 # -Math bot (I need to learn how to get the text after a message)
 # -Basic moderation
