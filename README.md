@@ -17,4 +17,4 @@ I remade a lot of this but i still don't like it
 
 - !help - Shows you a list of commands and what they do
 - !random - Gives you a random number
-- !flirt - Sends youa little message ;)
+- !flirt - I'm a failure :)
