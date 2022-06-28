@@ -1,15 +1,5 @@
-# THIS CODE IS AWFUL DON'T LOOK AT IT
-
-
 # TO DO
-# -Math bot (I need to learn how to get the text after a message)
-# -Basic moderation
-# -Learn discord commands extention (I will probably have to re-write the whole bot)
-# -Science cause SquidBoi wants it. I will probably just find some random science fact api
-#
-#
-#
-#
+# -Start again from scratch
 
 
 # Gets token from .env
@@ -25,6 +15,12 @@ from datetime import datetime
 client = discord.Client()
 
 
+def getTime():
+    now = datetime.now()
+    current_time = now.strftime("%D %H:%M")
+    return current_time
+
+
 @client.event
 async def on_ready():
     print("{0.user} is up and running bitch!".format(client))
@@ -35,12 +31,13 @@ async def on_message(message):
 
     if message.author == client.user:
         return
-
-    now = datetime.now()
-    current_time = now.strftime("%D %H:%M")
-    print(
-        f"{current_time} - ({message.guild.name} - {message.channel.name}) {message.author}: {message.content}"
-    )
+    try:
+        print(
+            f"{getTime()} - ({message.guild.name} - {message.channel.name}) {message.author}: {message.content}"
+        )
+    except AttributeError:
+        print(f"{getTime()} - (Direct message) {message.author}: {message.content}")
+        return
 
     # BOT COMMANDS:
 
@@ -49,11 +46,7 @@ async def on_message(message):
 
         # !test
         if message.content.lower() == "!test":
-            now = datetime.now()
-            current_time = now.strftime("%D %H:%M")
-            print(
-                f"{current_time} - ({message.guild.name}) >> {message.author} ran !test"
-            )
+            print(f"{getTime()} - ({message.guild.name}) >> {message.author} ran !test")
             await message.channel.send(f"stfu {message.author}")
             return
 
@@ -61,8 +54,6 @@ async def on_message(message):
 
     # !random
     if message.content.lower() == "!random":
-        now = datetime.now()
-        current_time = now.strftime("%D %H:%M")
 
         lines = [
             "You seems like the kind of person to want {num}",
@@ -74,16 +65,14 @@ async def on_message(message):
         num = random.randint(1, 100)
         line = random.choice(lines)
         print(
-            f'{current_time} - ({message.guild.name}) >> {message.author} ran !random in {message.channel.name} and got response "{line.format(num=num)}"'
+            f'{getTime()} - ({message.guild.name}) >> {message.author} ran !random in {message.channel.name} and got response "{line.format(num=num)}"'
         )
         await message.channel.send(line.format(num=num))
 
     # !help
     if message.content.lower() == "!help":
-        now = datetime.now()
-        current_time = now.strftime("%D %H:%M")
         print(
-            f"{current_time} - ({message.guild.name}) >> {message.author} ran !help in {message.channel.name}"
+            f"{getTime()} - ({message.guild.name}) >> {message.author} ran !help in {message.channel.name}"
         )
         embed = discord.Embed(
             title="Robotic Peacock", description="Commands:", color=0x002FA0
@@ -128,11 +117,9 @@ async def on_message(message):
             "Sorry but your not my type. No hard feelings :)",
             "Whats up baby :smirk:",
         ]
-        now = datetime.now()
-        current_time = now.strftime("%D %H:%M")
         line = random.choice(lines)
         print(
-            f'{current_time} - ({message.guild.name}) >> {message.author} ran !flirt in {message.channel.name} and got response "{line}"'
+            f'{getTime()} - ({message.guild.name}) >> {message.author} ran !flirt in {message.channel.name} and got response "{line}"'
         )
 
         await message.author.send(line)

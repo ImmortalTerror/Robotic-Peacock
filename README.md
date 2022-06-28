@@ -1,8 +1,17 @@
 # Robotic-Peacock
 
+<div align="center">
+
+![GitHub Repo stars](https://img.shields.io/github/stars/immortalterror/Number-guessing-game?style=plastic)
+![Discord](https://img.shields.io/discord/760686151736229938?label=Discord&style=plastic)
+![GitHub](https://img.shields.io/github/license/immortalterror/Number-guessing-game)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
 A simple Discord bot I'm using to get better at python
 
-The code in this is absolutely awful! I need to remake this from scratch as everything is just wrong. LIKE WHY DID I ADD SO MANY IF STATEMENTS!?! WHY IS THERE NO LIST FOR THE PICKUP LINES!?! It's so bad I hate it
+</div>
+
+I remade a lot of this but i still don't like it
 
 ## Commands
 
